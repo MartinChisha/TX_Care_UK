@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TX Care UK Limited - Professional Care Services with Mental Health Focus</title>
+    <meta name="description" content="TX Care UK - Professional healthcare services with specialized mental health support. Connecting verified professionals with clients across the UK.">
+    <meta name="keywords" content="healthcare, mental health, nursing care, home care, UK healthcare services">
+    <meta property="og:title" content="TX Care UK - Professional Care Services with Mental Health Focus">
+    <meta property="og:description" content="Verified healthcare professionals with specialized mental health support for all your care needs">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MedicalOrganization",
+        "name": "TX Care UK Limited",
+        "description": "Professional healthcare and mental health support services provider",
+        "url": "https://txcareuk.co.uk",
+        "logo": "https://txcareuk.co.uk/logo.png",
+        "telephone": "+44-20-7123-4567",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Flat 12 Foxleyes Court William Heelas Way",
+            "addressLocality": "Wokingham",
+            "postalCode": "RG40 1JZ",
+            "addressCountry": "UK"
+        },
+        "areaServed": "UK",
+        "medicalSpecialty": ["Mental Health", "Nursing Care", "Home Care"]
+    }
+    </script>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a76d2;
+            --primary-dark: #0d47a1;
+            --secondary: #4db6ac;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #4caf50;
+            --mental-health: #6a5acd; /* Complementary color for mental health emphasis */
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            scroll-behavior: smooth;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        
+        /* Skip link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: var(--primary);
+            color: white;
+            padding: 8px;
+            z-index: 100;
+            text-decoration: none;
+            border-radius: 0 0 4px 4px;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+        
+        /* Logo Styles - Ensuring blue logo is always visible */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo-text span {
+            color: var(--primary-dark);
+        }
+        
+        /* Navbar - Removed color change on scroll, keeping blue logo visible */
+        .navbar {
+            transition: box-shadow 0.3s ease;
+            background: white !important;
+        }
+        
+        .navbar .logo-text {
+            color: var(--primary) !important;
+        }
+        
+        /* Hero Section - Updated with balanced focus */
+        .hero {
+            background: linear-gradient(rgba(26, 118, 210, 0.85), rgba(13, 71, 161, 0.85)), url('https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 8px 20px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 40px;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+        }
+        
+        .section-title.text-center::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Mental Health Focus Section */
+        .mental-health-focus {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f5f7ff 0%, #e3eeff 100%);
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .mental-health-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(106, 90, 205, 0.1);
+            padding: 40px;
+            text-align: center;
+            border-top: 5px solid var(--mental-health);
+            transition: transform 0.3s ease;
+        }
+        
+        .mental-health-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .mental-health-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(106, 90, 205, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: var(--mental-health);
+            margin: 0 auto 20px;
+        }
+        
+        /* Services Section - Balanced approach */
+        .services {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 30px;
+            height: 100%;
+            transition: transform 0.3s ease;
+            border-top: 4px solid var(--primary);
+        }
+        
+        .service-card.mental-health-highlight {
+            border-top: 4px solid var(--mental-health);
+            box-shadow: 0 5px 15px rgba(106, 90, 205, 0.1);
+            position: relative;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(26, 118, 210, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .service-card.mental-health-highlight .service-icon {
+            background: rgba(106, 90, 205, 0.1);
+            color: var(--mental-health);
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .step-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 30px;
+            height: 100%;
+            text-align: center;
+        }
+        
+        .step-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin: 0 auto 20px;
+        }
+        
+        /* Professionals Section - Hidden */
+        .professionals {
+            padding: 80px 0;
+            background-color: white;
+            display: none;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background: linear-gradient(rgba(26, 118, 210, 0.05), rgba(77, 182, 172, 0.05));
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .client-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 20px;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: var(--primary);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(rgba(26, 118, 210, 0.9), rgba(13, 71, 161, 0.9));
+            color: white;
+            text-align: center;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 30px;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+        }
+        
+        .btn-mental-health {
+            background-color: var(--mental-health);
+            border-color: var(--mental-health);
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 30px;
+            color: white;
+        }
+        
+        .btn-mental-health:hover {
+            background-color: #5a4cb3;
+            border-color: #5a4cb3;
+            color: white;
+        }
+        
+        .btn-outline-light {
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 30px;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-icon:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            margin-top: 40px;
+        }
+        
+        /* Statistics */
+        .stat-card {
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .stat-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* Loading state */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 99;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+        }
+        
+        .back-to-top:hover {
+            background: var(--primary-dark);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Back to top button -->
+    <a href="#" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Header & Navigation - Blue logo always visible -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow py-3 fixed-top">
+        <div class="container">
+            <a class="logo" href="#" aria-label="TX Care UK Home">
+                <div class="logo-icon">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <div class="logo-text">
+                    <span>TX</span> Care UK
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#mental-health">Mental Health</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#how-it-works">How It Works</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <a class="btn btn-outline-primary" href="#" onclick="alert('Professional login will be available on the main website');">Professional Login</a>
+                    </li>
+                </ul>
+            </div> 
+        </div>
+    </nav>
+
+    <!-- Hero Section - Balanced focus -->
+    <section class="hero" id="main-content">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-badge"><i class="fas fa-shield-alt me-2"></i>Verified Professionals Across All Services</span>
+                <h1 class="display-4 fw-bold mb-4">Professional Care Services with Mental Health Focus</h1>
+                <p class="lead mb-5">TX Care UK provides a trusted platform connecting qualified healthcare professionals with those in need. We verify all professionals across nursing care, home assistance, rehabilitation, and specialized mental health support.</p>
+                <div class="d-flex flex-wrap justify-content-center gap-3">
+                    <a href="#services" class="btn btn-light btn-lg">Explore All Services</a>
+                    <a href="#mental-health" class="btn btn-mental-health btn-lg">Mental Health Support</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mental Health Focus Section -->
+    <section id="mental-health" class="mental-health-focus">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title text-center">Specialized Mental Health Support</h2>
+                <p class="lead">While we provide comprehensive healthcare services, we have developed particular expertise in mental health support</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="mental-health-card">
+                        <div class="mental-health-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3>Therapy & Counseling</h3>
+                        <p>One-on-one sessions with licensed therapists specializing in various therapeutic approaches including CBT, DBT, and psychodynamic therapy.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="mental-health-card">
+                        <div class="mental-health-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Community Support</h3>
+                        <p>Join supportive group sessions for shared experiences and collective healing in a safe, confidential environment.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="mental-health-card">
+                        <div class="mental-health-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Online Sessions</h3>
+                        <p>Flexible telehealth options for convenient access to mental health support from the comfort of your home.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-12 text-center">
+                    <p class="mb-4">We specialize in treating: Anxiety Disorders, Depression, PTSD, OCD, Bipolar Disorder, and more</p>
+                    <a href="#" class="btn btn-mental-health btn-lg" onclick="alert('Inquiry forms are available on the main website');">Get Mental Health Support</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section - Balanced approach with all services -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title text-center">Our Comprehensive Services</h2>
+                <p class="lead">Professional healthcare services across multiple specialties with verified professionals</p>
+            </div>
+            
+            <div class="row">
+                <!-- Mental Health highlighted but not exclusive -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="service-card mental-health-highlight">
+                        <div class="service-icon mx-auto">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="text-center">Mental Health Support</h3>
+                        <p class="text-center">Compassionate mental health professionals providing therapy and support services for various conditions.</p>
+                        <ul class="mt-3">
+                            <li>Cognitive behavioral therapy</li>
+                            <li>Anxiety and depression support</li>
+                            <li>Trauma and PTSD treatment</li>
+                            <li>Stress management techniques</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="service-card">
+                        <div class="service-icon mx-auto">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <h3 class="text-center">Nursing Care</h3>
+                        <p class="text-center">Professional nursing services including wound care, medication management, and post-operative care.</p>
+                        <ul class="mt-3">
+                            <li>Elderly care specialists</li>
+                            <li>Post-operative recovery</li>
+                            <li>Chronic condition management</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="service-card">
+                        <div class="service-icon mx-auto">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h3 class="text-center">Home Care Assistance</h3>
+                        <p class="text-center">Daily living support and companionship for those needing assistance at home.</p>
+                        <ul class="mt-3">
+                            <li>Personal care assistance</li>
+                            <li>Meal preparation</li>
+                            <li>Mobility support</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="service-card">
+                        <div class="service-icon mx-auto">
+                            <i class="fas fa-procedures"></i>
+                        </div>
+                        <h3 class="text-center">Rehabilitation Therapy</h3>
+                        <p class="text-center">Physical and occupational therapy services for recovery and improved mobility.</p>
+                        <ul class="mt-3">
+                            <li>Post-stroke rehabilitation</li>
+                            <li>Injury recovery programs</li>
+                            <li>Mobility enhancement</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="service-card">
+                        <div class="service-icon mx-auto">
+                            <i class="fas fa-stethoscope"></i>
+                        </div>
+                        <h3 class="text-center">Medical Consultations</h3>
+                        <p class="text-center">In-home doctor visits for comprehensive health assessments and treatment.</p>
+                        <ul class="mt-3">
+                            <li>General health check-ups</li>
+                            <li>Chronic disease management</li>
+                            <li>Prescription management</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="service-card">
+                        <div class="service-icon mx-auto">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
+                        <h3 class="text-center">Specialized Care</h3>
+                        <p class="text-center">Expert care for specific conditions including dementia and palliative care.</p>
+                        <ul class="mt-3">
+                            <li>Dementia and Alzheimer's care</li>
+                            <li>Palliative and end-of-life support</li>
+                            <li>Disability care services</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section - Balanced statistics -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="stat-card">
+                        <div class="stat-number">180+</div>
+                        <div class="stat-title">Mental Health Professionals</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="stat-card">
+                        <div class="stat-number">250+</div>
+                        <div class="stat-title">Total Verified Professionals</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="stat-card">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-title">Client Satisfaction</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="stat-card">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-title">Support Available</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title text-center">How TX Care UK Works</h2>
+                <p class="lead">A simple process to connect with qualified healthcare professionals across all services</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h4>Share Your Needs</h4>
+                        <p>Tell us about your healthcare requirements through our secure inquiry form.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h4>Verification Process</h4>
+                        <p>We verify all credentials, certifications, and background checks for all professionals.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h4>Match with Professionals</h4>
+                        <p>We connect you with verified professionals specializing in your specific needs.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <h4>Begin Your Care</h4>
+                        <p>Start your treatment plan or care services with ongoing support from our team.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section - Balanced testimonials -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title text-center">Client Testimonials</h2>
+                <p class="lead">What our clients say about our healthcare services</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="client-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-0">Thomas Wright</h5>
+                                <p class="text-muted mb-0">Mental Health Client</p>
+                            </div>
+                        </div>
+                        <div class="rating mb-3 text-warning">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p>"Working with Dr. Johnson has transformed my approach to anxiety management. Her professional yet compassionate approach created a safe space for me to work through my challenges."</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="client-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-0">Eleanor Richardson</h5>
+                                <p class="text-muted mb-0">Elderly Care Client</p>
+                            </div>
+                        </div>
+                        <div class="rating mb-3 text-warning">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"The nursing care provided by James has been exceptional. His expertise in elderly care has made such a difference in my mother's quality of life. We're so grateful for the support."</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="client-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-0">Rebecca Johnson</h5>
+                                <p class="text-muted mb-0">Post-Operative Care</p>
+                            </div>
+                        </div>
+                        <div class="rating mb-3 text-warning">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"After my knee surgery, Emma's physical therapy sessions were crucial to my recovery. Her expertise and encouragement helped me regain mobility much faster than expected."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="mb-4">Ready to Get Started?</h2>
+                    <p class="lead mb-5">Join thousands of satisfied clients and professionals who trust TX Care UK for their care needs and careers.</p>
+                    <div class="d-flex flex-wrap justify-content-center gap-3">
+                        <a href="#" class="btn btn-light btn-lg" onclick="alert('Inquiry forms are available on the main website');">Find Care Professional</a>
+                        <a href="#" class="btn btn-outline-light btn-lg" onclick="alert('Professional registration is available on the main website');">Apply as Professional</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <div class="logo mb-3">
+                        <div class="logo-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <div class="logo-text text-white">
+                            <span>TX</span> Care UK
+                        </div>
+                    </div>
+                    <p>Connecting qualified healthcare professionals with those in need throughout the United Kingdom. Specializing in comprehensive care services with enhanced mental health support.</p>
+                    <div class="d-flex mt-4">
+                        <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="text-white mb-4">Quick Links</h5>
+                    <div class="footer-links">
+                        <a href="#">Home</a>
+                        <a href="#services">Services</a>
+                        <a href="#mental-health">Mental Health</a>
+                        <a href="#how-it-works">How It Works</a>
+                        <a href="#testimonials">Testimonials</a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-4 mb-4 mb-md-0">
+                    <h5 class="text-white mb-4">Services</h5>
+                    <div class="footer-links">
+                        <a href="#">Mental Health Support</a>
+                        <a href="#">Nursing Care</a>
+                        <a href="#">Home Care Assistance</a>
+                        <a href="#">Rehabilitation Therapy</a>
+                        <a href="#">Medical Consultations</a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="text-white mb-4">Contact Us</h5>
+                    <div class="footer-links">
+                        <p><i class="fas fa-map-marker-alt me-2"></i>Flat 12 Foxleyes Court
+William Heelas Way
+Wokingham, England, RG40 1JZ
+</p>
+                        <p><i class="fas fa-phone me-2"></i> +44 20 7123 4567</p>
+                        <p><i class="fas fa-envelope me-2"></i> peter@txcareuk.co.uk</p>
+                        <p><i class="fas fa-clock me-2"></i> Mon-Fri: 8am-8pm, Sat: 9am-5pm</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright text-center">
+                <p class="mb-0">&copy; 2023 TX Care UK Limited. All rights reserved. Registered in England No. 13901041</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Simple smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Navbar - Removed color change on scroll, kept shadow for better visibility
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 10) {
+                navbar.classList.add('shadow');
+            } else {
+                navbar.classList.remove('shadow');
+            }
+            
+            // Show/hide back to top button
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // Lazy loading for images
+        document.addEventListener('DOMContentLoaded', function() {
+            const lazyImages = [].slice.call(document.querySelectorAll('.professional-img'));
+            
+            if ('IntersectionObserver' in window) {
+                let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            let lazyImage = entry.target;
+                            lazyImage.style.backgroundImage = lazyImage.style.backgroundImage;
+                            lazyImageObserver.unobserve(lazyImage);
+                        }
+                    });
+                });
+                
+                lazyImages.forEach(function(lazyImage) {
+                    lazyImageObserver.observe(lazyImage);
+                });
+            }
+        });
+
+        // Loading state for buttons
+        document.querySelectorAll('a.btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                if (this.href && !this.href.startsWith('#') && this.href !== '#') {
+                    this.innerHTML = '<span class="loading"></span> Loading...';
+                    setTimeout(() => {
+                        this.innerHTML = 'Action Not Available';
+                        this.classList.add('btn-secondary');
+                        this.classList.remove('btn-primary', 'btn-light', 'btn-mental-health');
+                    }, 1000);
+                }
+            });
+        });
+
+        // Remove navigation items that linked to removed sections
+        document.addEventListener('DOMContentLoaded', function() {
+            // Remove Professionals link from navigation
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            navLinks.forEach(link => {
+                if (link.textContent === 'Our Professionals' || link.textContent === 'Health Insights') {
+                    link.parentElement.remove();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
